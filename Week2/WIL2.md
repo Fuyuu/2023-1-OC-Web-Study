@@ -87,9 +87,32 @@ Git은 협업이 어쩌구 저쩌구라며... 우리집 컴퓨터에서만 지�
 -------------------------------------------------------------------------------------------
 Week 2 선택 과제 - Unity Hub
 ==========
-- Unity Hub에서 새 프로젝트를 만들고 github의 remote repository와 연결해 보자. </br>
+## Unity Hub에서 새 프로젝트를 만들고 github의 remote repository와 연결해 보자. </br>
 이번에는 Github Desktop 프로그램을 이용할 것이다. </br>
   1. Unity Hub에서 새 프로젝트를 만든다. 이떄 경로는 local repository의 Week2 폴더로 설정했다.
   2. 우리는 이미 repository가 있으므로 github desktop에서 add local repository를 선택해서 gdsc 레포지토리를 연결한다.
   3. 좌하단에 title과 description을 작성하여 commit to main을 누른다.
   4. 그리고 publish repository를 눌러 반영한다.
+ 
+
+## 그런데... </br>
+ - 위 과정을 수행하면서 심각한 문제에 직면했다.</br>
+
+![제목 없음](https://user-images.githubusercontent.com/62879448/228008827-7a12e407-3457-43d8-b7f1-fe102e53e791.png)
+
+유니티 프로젝트의 몇몇 파일들의 크기가 너무 커서 github에서 받아들이지 못하는 것. </br>
+다행히도 구글신께서는 해결법을 다 알고계셨는데... </br>
+
+## .gitignore & .gitattributes
+- 먼저 .gitignore 파일을 만드는 것이다. 이 안에 써져 있는 확장자의 파일들은 github에 올릴 때 이악물고 무시해준다. </br>
+원래는 레포지토리를 만들 때 템플릿을 만들어 넣을 수 있지만 우리는 그런 것을 생각하고 한게 아니므로, 또 구글링을 한다. </br>
+https://www.toptal.com/developers/gitignore 사이트에서는 원하는 프로그래밍 언어나 프로그램을 선택하면 그에 맞는 .gitignore 파일을 만들어준다. </br>
+
+- 하나는 해결했고 이번에는 .gitattribute 파일이다. 이거는 특수한 오픈소스 프로그램을 따로 설치해야 하는데 그 이름이 git lfs(git large file storage) 되시겠다. </br>
+이 프로그램을 설치한 뒤 git bash를 열어서 git lfs를 쓰겠다고 등록한 뒤 lfs로 저장해줄 확장자들만 따로 추가해주면 된다. </br>
+
+![스크린샷 2023-03-28 015034](https://user-images.githubusercontent.com/62879448/228010715-6b9b10cb-ca8f-4455-a9e2-920ee0151562.png)
+
+**주의점!** 유니티 프로젝트를 커밋하기 전에 반드시 미리 만들어 놓았던 위의 2개의 파일을 먼저 커밋해주어야 오류가 뜨지 않는다. </br>
+
+이렇게 우여곡절 끝에 유니티 프로젝트 업로드가 끝났다.
