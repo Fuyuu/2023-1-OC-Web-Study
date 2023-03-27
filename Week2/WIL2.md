@@ -87,4 +87,9 @@ Git은 협업이 어쩌구 저쩌구라며... 우리집 컴퓨터에서만 지�
 -------------------------------------------------------------------------------------------
 Week 2 선택 과제 - Unity Hub
 ==========
-
+- Unity Hub에서 새 프로젝트를 만들고 github의 remote repository와 연결해 보자. </br>
+이번에는 Github Desktop 프로그램을 이용할 것이다. </br>
+  1. Unity Hub에서 새 프로젝트를 만든다. 이떄 경로는 local repository의 Week2 폴더로 설정했다.
+  2. 우리는 이미 repository가 있으므로 github desktop에서 add local repository를 선택해서 gdsc 레포지토리를 연결한다.
+  3. 좌하단에 title과 description을 작성하여 commit to main을 누른다.
+  4. 그리고 publish repository를 눌러 반영한다.
