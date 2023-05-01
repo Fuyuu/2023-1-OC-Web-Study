@@ -159,3 +159,101 @@ footer | 푸터를 의미한다
     Padding | 테두리(Border) 안쪽에 위치하는 요소의 내부 여백 영역이다. padding 프로퍼티 값은 패딩 영역의 두께를 의미하며 기본색은 투명(transparent)이다. 요소에 적용된 배경의 컬러, 이미지는 패딩 영역까지 적용된다.
     Border | 테두리 영역으로 border 프로퍼티 값은 테두리의 두께를 의미한다.
     Margin | 테두리(Border) 바깥에 위치하는 요소의 외부 여백 영역이다. margin 프로퍼티 값은 마진 영역의 두께를 의미한다. 기본적으로 투명(transparent)하며 배경색을 지정할 수 없다.
+    
+    1. width / height 프로퍼티: width와 height 프로퍼티는 요소의 너비와 높이를 지정하기 위해 사용된다. 이때 지정되는 요소의 너비와 높이는 콘텐츠 영역을 대상으로 한다. </br>
+    ```overflow: hidden;```을 지정하면 넘친 콘텐츠를 감출 수 있다.</br>
+    2. margin / padding 프로퍼티: content의 4개 방향(top, right, left, bottom)에 대하여 지정이 가능하다.
+    3. border 프로퍼티
+        1. border-style: 테두리 선의 스타일을 지정한다.
+        2. border-width: 테두리의 두께를 지정한다. border-width 프로퍼티는 border-style과 함께 사용하지 않으면 적용되지 않는다.
+        3. border-color: 테두리의 색상을 지정한다. border-color 프로퍼티는 border-style과 함께 사용하지 않으면 적용되지 않는다.
+        4. border-radius: 테두리 모서리를 둥글게 표현하도록 지정한다. 프로퍼티 값은 길이를 나타내는 단위(px, em 등)와 %를 사용한다. </br>
+        각각의 모서리에 border-radius 프로퍼티를 개별적으로 지정할 수도 있고 4개의 모서리를 short-hand로 한번에 지정할 수도 있다. </br>
+        하나 혹은 두개의 반지름을 설정하여 각각의 모서리 굴곡을 설정할 수 있기 때문에 원 혹은 타원의 모양으로 정의가 가능하다. </br>
+        5. border: border-width, border-style, border-color를 한번에 설정하기 위한 shorthand 프로퍼티이다.
+    4. box-sizing 프로퍼티: width, height 프로퍼티의 대상 영역을 변경할 수 있다. </br>
+    
+    키워드 | 설명
+    --- | ---
+    content-box | width, height 프로퍼티 값은 content 영역을 의미한다. (기본값)
+    border-box | width, height 프로퍼티 값은 content 영역, padding, border가 포함된 값을 의미한다.
+    
+11. 폰트와 텍스트: 폰트의 크기, 폰트의 지정, 폰트의 스타일, 텍스트 정렬 등을 정의한다.
+    1. font-size: 텍스트의 크기를 정의한다.
+    2. font-family: 폰트를 지정한다. 컴퓨터에 해당 폰트가 설치되어 있지 않으면 적용되지 않는다.
+    3. font-style / font-weight: font-style 프로퍼티는 이탤릭체의 지정, font-weight 프로퍼티는 폰트 굵기 지정에 사용된다.
+    4. font Shorthand: 한번에 설정하기 위한 shorthand 프로퍼티이다. </br>
+    ```font : font-style(optional) font-variant(optional) font-weight(optional) font-size(mandatory) line-height(optional) font-family(mandatory)```
+    5. line-height: 텍스트의 높이를 지정한다. 텍스트 수직 정렬에도 응용되어 사용된다.
+    6. letter-spacing: 글자 사이의 간격을 지정한다.
+    7. text-align: 텍스트의 수평 정렬을 정의한다.
+    8. text-decoration: 링크 underline을 제거할 수 있다. 또는 텍스트에 underline, overline, line-through를 추가할 수도 있다.
+    9. white-space: white space는 공백(space), 들여쓰기(tab), 줄바꿈(line break)을 의미한다. </br>
+    html은 기본적으로 연속된 공백(space), 들여쓰기(tab)는 1번만 실행되며 줄바꿈(line break)은 무시된다. </br>
+    또한 텍스트는 부모의 가로 영역을 벗어나지 않고 자동 줄바꿈(wrap)된다. </br>
+    
+    프로퍼티값 | line break | space/tab | wrapping(자동 줄바꿈)
+    --- | --- | --- | ---
+    normal | 무시 | 1번만 반영 | O
+    nowrap | 무시 | 1번만 반영 | X
+    pre | 반영 | 그대로 반영 | X
+    pre-wrap | 반영 | 그대로 반영 | O
+    pre-line | 반영 | 1번만 반영 | O
+    
+    10. text-overflow: 부모 영역을 벗어난 wrapping(자동줄바꿈)이 되지 않은 텍스트의 처리 방법을 정의한다. 이 프로퍼티를 사용하기 위해서는 아래의 조건이 필요하다. </br>
+        - width 프로퍼티가 지정되어 있어야 한다. 이를 위해 필요할 경우 block 레벨 요소로 변경하여야 한다.
+        - 자동 줄바꿈을 방지하려면 white-space 프로퍼티를 nowrap으로 설정한다.
+        - overflow 프로퍼티에 반드시 “visible” 이외의 값이 지정되어 있어야 한다.
+   
+        프로퍼티값 | Description | ---
+        --- | --- | ---
+        clip | 영역을 벗어난 텍스트를 표시하지 않는다. (기본값) |	 
+        ellipsis | 영역을 벗어난 텍스트를 잘라내어 보이지 않게 하고 말줄임표(…)를 표시한다. | 	 
+        <!– | ```<string>``` | 프로퍼티 값으로 지정한 임의의 문자열을 출력한다. Firefox(9.0~)만 지원하는 기능이다. –>
+
+    11. word-wrap: 한 단어의 길이가 길어서 부모 영역을 벗어난 텍스트의 처리 방법을 정의한다. </br>
+    link 등을 표기할 때(e.g. https://poiemaweb.com/css3-font-text) 그 길이가 매우 길어지는데 이 프로퍼티를 사용하지 않으면 부모 영역을 넘어가게 된다. </br>
+    12. word-break: 한 단어의 길이가 길어서 부모 영역을 벗어난 텍스트의 처리 방법을 정의한다. </br>
+    word-wrap 프로퍼티는 단어를 어느 정도는 고려하여 개행하지만(.,- 등을 고려한다) word-break: break-all;는 단어를 고려하지 않고 부모 영역에 맞추어 강제 개행한다. </br>
+    
+12. 요소의 위치 정의
+    1. position: 요소의 위치를 정의한다. top, bottom, left, right 프로퍼티와 함께 사용하여 위치를 지정한다.
+        1. static (기본 위치): position 프로퍼티의 기본값으로 position 프로퍼티를 지정하지 않았을 때와 같다.
+        2. relative (상대 위치): 기본 위치(static으로 지정되었을 때의 위치)를 기준으로 좌표 프로퍼티(top, bottom, left, right)를 사용하여 위치를 이동시킨다.
+        3. absolute (절대 위치): 부모 요소 또는 가장 가까이 있는 조상 요소(static 제외)를 기준으로 좌표 프로퍼티(top, bottom, left, right)만큼 이동한다.
+        4. fixed (고정 위치): 부모 요소와 관계없이 브라우저의 viewport를 기준으로 좌표 프로퍼티(top, bottom, left, right)을 사용하여 위치를 이동시킨다. </br>
+        스크롤이 되더라도 화면에서 사라지지 않고 항상 같은 곳에 위치한다. </br>
+        fixed 프로퍼티 선언 시, block 요소의 width는 inline 요소와 같이 content에 맞게 변화되므로 적절한 width를 지정하여야 한다. </br>
+    2. z-index 프로퍼티: z-index 프로퍼티에 큰 숫자값을 지정할수록 화면 전면에 출력된다. positon 프로퍼티가 static 이외인 요소에만 적용된다.
+    3. overflow 프로퍼티: 자식 요소가 부모 요소의 영역를 벗어났을 때 처리 방법을 정의한다.
+    
+    프로퍼티값 | Description
+    --- | ---
+    visible | 영역을 벗어난 부분을 표시한다. (기본값)
+    hidden | 영역을 벗어난 부분을 잘라내어 보이지 않게 한다.
+    scroll | 영역을 벗어난 부분이 없어도 스크롤 표시한다.(현재 대부분 브라우저는 auto과 동일하게 작동한다)
+    auto | 영역을 벗어난 부분이 있을때만 스크롤 표시한다.
+
+13. 요소 정렬: float 프로퍼티는 주로 레이아웃을 구성할 때 블록 레벨 요소를 가로 정렬하기 위해 사용되는 중요한 기법이다. </br>
+flexbox 레이아웃를 사용한다면 더욱 간단하게 정렬을 구현할 수도 있지만 flexbox 레이아웃을 지원하지 않는 IE를 고려해야 한다면 float 프로퍼티를 사용해야 한다. </br>
+float 프로퍼티를 사용할 때 요소의 위치를 고정시키는 position 프로퍼티의 absolute를 사용하면 안된다. </br>
+
+    프로퍼티값 | Description
+    --- | ---
+    none | 요소를 떠 있게 하지 않는다. (기본값)
+    right | 요소를 오른쪽으로 이동시킨다
+    left | 요소를 왼쪽으로 이동시킨다.
+    1. 정렬: float 프로퍼티를 사용하지 않은 블록 요소들은 수직으로 정렬된다. </br>
+    float:left; 프로퍼티를 사용하면 왼쪽부터 가로 정렬되고, float:right; 프로퍼티를 사용하면 오른쪽부터 가로 정렬된다. </br>
+    오른쪽 가로 정렬의 경우, 먼저 기술된 요소가 가장 오른쪽에 출력되므로 출력 순서가 역순이 된다. </br>
+    float 프로퍼티는 좌측, 우측 가로 정렬만 할 수 있다. 중앙 가로 정렬은 margin 프로퍼티를 사용해야 한다. </br>
+    2. width: width 프로퍼티의 기본값은 100%이므로 width 프로퍼티값을 지정하지 않은 block 요소는 부모 요소의 가로폭을 가득 채운다. </br>
+    width 프로퍼티를 선언하지 않은 block 레벨 요소에 float 프로퍼티가 선언되면 width가 inline 요소와 같이 content에 맞게 최소화되고 다음 요소 위에 떠 있게(부유하게) 된다. </br>
+    3. float 프로퍼티 관련 문제 해결 방법
+        1. float 프로퍼티가 선언된 요소와 float 프로퍼티가 선언되지 않은 요소간 margin이 사라지는 문제 </br>
+        answer) 두번째 요소에 float 프로퍼티를 선언하지 않았기 때문에 발생하는 박스 모델 상의 문제이다. </br>
+        이 문제를 해결하는 가장 쉬운 방법은 float 프로퍼티를 선언하지 않은 요소에 overflow: hidden 프로퍼티를 선언하는 것이다. </br>
+        overflow: hidden 프로퍼티는 자식 요소가 부모 요소의 영역보다 클 경우 넘치는 부분을 안보이게 해주는 역할을 하는데 </br>
+        여기서는 float 프로퍼티가 없어서 제대로 표현되지 못하는 요소를 제대로 출력해준다. </br>
+        2. float 프로퍼티가 선언된 자식 요소를 포함하는 부모 요소의 높이가 정상적으로 반영되지 않는 문제 </br>
+        answer) float 프로퍼티가 선언된 자식 요소의 부모 요소에 overflow: hidden 프로퍼티를 선언하는 것이다.
